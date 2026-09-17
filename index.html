@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="./assets/images/logo-large.svg" alt="Typing Speed Test" class="logo-desktop">
+      </div>
+      <div class="personal-best">
+        <img src="./assets/images/icon-personal-best.svg" alt="Trophy">
+        <span>Personal best: <span id="pb-val">0</span> WPM</span>
+      </div>
+    </header>
+
+    <nav class="controls">
+      <div class="stats">
+        <div class="stat">WPM: <span id="wpm-val">0</span></div>
+        <div class="stat">Accuracy: <span id="acc-val">100%</span></div>
+        <div class="stat">Time: <span id="time-val">0:60</span></div>
+      </div>
+      <div class="options">
+        <div class="option-group">
+          <span class="label">Difficulty:</span>
+          <button class="diff-btn active" data-diff="easy">Easy</button>
+          <button class="diff-btn" data-diff="medium">Medium</button>
+          <button class="diff-btn" data-diff="hard">Hard</button>
+        </div>
+        <div class="option-group">
+          <span class="label">Mode:</span>
+          <button class="mode-btn active" data-mode="timed">Timed (60s)</button>
+          <button class="mode-btn" data-mode="passage">Passage</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Active Typing Area -->
+      <div id="typing-section">
+        <div id="text-display" class="blurred"></div>
+        <div class="start-overlay" id="start-overlay">
+          <button id="start-btn">Start Typing Test</button>
+          <p>Or click the text and start typing</p>
+        </div>
+        <!-- Hidden input to capture keystrokes -->
+        <input type="text" id="hidden-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button id="restart-test-btn" class="hidden"><img src="./assets/images/icon-restart.svg" alt="Restart"> Restart Test</button>
+      </div>
+
+      <!-- Results Section -->
+      <div id="results-section" class="hidden">
+        <div class="confetti-bg hidden" id="confetti-bg"></div>
+        <div class="result-icon">
+            <img id="result-icon-img" src="./assets/images/icon-completed.svg" alt="Completed">
+        </div>
+        <h1 id="result-title">Test Complete!</h1>
+        <p id="result-subtitle">Solid run. Keep pushing to beat your high score.</p>
+        
+        <div class="result-stats">
+          <div class="r-stat">
+            <span class="r-label">WPM:</span>
+            <span class="r-val" id="r-wpm">85</span>
+          </div>
+          <div class="r-stat">
+            <span class="r-label">Accuracy:</span>
+            <span class="r-val" id="r-acc" style="color: var(--red-500)">90%</span>
+          </div>
+          <div class="r-stat">
+            <span class="r-label">Characters</span>
+            <span class="r-val"><span id="r-char-correct" style="color: var(--green-500)">120</span>/<span id="r-char-incorrect" style="color: var(--red-500)">5</span></span>
+          </div>
+        </div>
+
+        <button id="go-again-btn">Go Again <img src="./assets/images/icon-restart.svg" alt=""></button>
+      </div>
+    </main>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
